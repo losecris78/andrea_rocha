@@ -1,18 +1,34 @@
 @media screen {
     
 }
-h1 {
+*{
+    box-sizing: border-box;
+}
+#title{
+    display: flex;
+}
+#title h1 {
+    background-color: rgba(190, 24, 24, 0.622);
+    border: 1.5px solid black;
+    border-radius: 14px;
     padding: 0.8rem;
     margin:1.5rem auto;
-background-color: rgba(190, 24, 24, 0.622);
-color: rgb(242, 248, 247);
-font-family: 'Kanit', sans-serif;
-font-size: 2.8rem;
+    color: rgb(242, 248, 247);
+    font-family: 'Kanit', sans-serif;
+    font-size: 2.8rem;
+    max-height: 20%;
+    text-align: center;
+}
+#title #logo {
+    width: 10rem;
+    border: none;
+
 }
 h2{
     padding: 0.5rem;
      font-family: 'Satisfy', cursive;
      font-size: 2.1rem;
+     text-align: center;
 }
 p{
     padding: 0.8rem;
@@ -20,18 +36,42 @@ p{
     font-size: 1.3rem;
     font-family: 'Cormorant Garamond', serif;
 }
+nav ul {
+    display:flex;
+    margin:1rem auto;
+    min-width: fit-content;
+    max-width: 45%;
+    border:2px solid black;
+    border-radius: 20px;
+    background-color: rgba(238, 171, 90, 0.267);
+
+}
 ul li{
     
     padding: 0.8rem;
     font-size: 1.3rem;
     font-family: 'Cormorant Garamond', serif;
+    list-style: none;
+    text-align: center;
 
 
 }
-div{
+section {
+    display: flex;
+}
+/*div img{
     background-color: rgba(238, 171, 90, 0.267);
-}
+}*/
 div img{
 margin: 1rem 2rem;
-padding:8rem;
+padding:.2rem;
+width: 85%;
+border:1.5px solid red;
+}
+footer{
+    background-color: rgba(238, 171, 90, 0.267);
+}
+#contact{
+    text-align: center;
+    padding:.5rem;
 }
