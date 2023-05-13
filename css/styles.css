@@ -21,14 +21,24 @@
 }
 #title #logo {
     width: 10rem;
-    border: none;
+    border:none;
+    box-shadow: none;
 
+}
+li,a{
+    color:black;
+    text-decoration: none;
 }
 h2{
     padding: 0.5rem;
      font-family: 'Satisfy', cursive;
      font-size: 2.1rem;
      text-align: center;
+}
+h3.lists{
+text-align: center;
+padding: 0.5rem;
+margin-left: 1.5rem;
 }
 p{
     padding: 0.8rem;
@@ -56,7 +66,7 @@ ul li{
 
 
 }
-section {
+#top, #bottom {
     display: flex;
 }
 /*div img{
@@ -66,7 +76,8 @@ div img{
 margin: 1rem 2rem;
 padding:.2rem;
 width: 85%;
-border:1.5px solid red;
+border:1.5px solid rgba(190, 24, 24, 0.622);
+box-shadow: 7px 3px rgba(238, 171, 90, 0.267);
 }
 footer{
     background-color: rgba(238, 171, 90, 0.267);
@@ -74,4 +85,8 @@ footer{
 #contact{
     text-align: center;
     padding:.5rem;
+}
+#smedia{
+    display: flex;
+    width: 25px;
 }

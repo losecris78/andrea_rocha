@@ -1,0 +1,257 @@
+**************************************************************************************************
+Weather api
+****************************************************************************************************
+
+//Date variables to get the las update and the actual date//
+let date = new Date;
+let year = date.getFullYear();
+
+//Last modified function//
+document.querySelector("#updated").textContent = `Updated: ${document.lastModified}`;
+//Year display for copyright//
+
+document.querySelector("#year1").innerText = year;
+
+// select HTML elements in the document
+const currentTemp = document.querySelector('#current-temp');
+const weatherIcon = document.querySelector('#weather-icon');
+const captionDesc = document.querySelector('figcaption');
+
+const url = 'https://api.openweathermap.org/data/2.5/weather?q=fairbanks&units=imperial&appid=87951c9b1071233f4e525b5a6cf8d68b';
+
+async function apiFetch() {
+    try {
+      const response = await fetch(url);
+      if (response.ok) {
+        const data = await response.json();
+        //console.log(data); // this is for testing the call
+         displayResults(data);
+      } else {
+          throw Error(await response.text());
+      }
+    } catch (error) {
+        console.log(error);
+    }
+  }
+  apiFetch();
+  function  displayResults(weatherData) {
+    currentTemp.innerHTML = `<strong>${weatherData.main.temp.toFixed(0)}</strong>`;
+  
+    const iconsrc = `https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`;
+    const desc = weatherData.weather[0].description;
+  
+    weatherIcon.setAttribute('src', iconsrc);
+    weatherIcon.setAttribute('alt', desc);
+    captionDesc.textContent = desc;
+    imageUrl.innerHTML=`${icon}`;
+  }
+
+
+  *************************************************************************************
+  lazy loading
+  ***************************************************************************************
+  const imgOptions = {
+    root:document.querySelector('#scrollArea'),
+    threshold:0.2, 
+    rootMargin:"0% 0% 30% 0%"
+  };
+let imagesToLoad = document.querySelectorAll("img[data-src]");
+const loadImages = (image) => {
+  image.setAttribute("src", image.getAttribute("data-src"));
+  image.onload = () => {
+    image.removeAttribute("data-src");
+  };
+};
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver((items, observer) => {
+    items.forEach((item) => {
+      if (item.isIntersecting) {
+        loadImages(item.target);
+        observer.unobserve(item.target);
+      }
+    });
+  });
+  imagesToLoad.forEach((img) => {
+    observer.observe(img);
+  });
+} else {
+  imagesToLoad.forEach((img) => {
+    loadImages(img);
+  });
+}
+
+******************************************************************************************
+Main script
+**********************************************************************************************
+
+//Date variables to get the las update and the actual date//
+let date = new Date;
+let year = date.getFullYear();
+let dateFormat = new Intl.DateTimeFormat("en-US",{dateStyle:"full"}).format(date);
+let day = date.getDay()
+/*console.log(day);*/
+
+//Last modified function//
+document.querySelector("#updated").textContent = `Updated: ${document.lastModified}`;
+//Year display for copyright//
+
+document.querySelector("#year1").innerText = year;
+
+//Date displayed on header//
+document.querySelector("#todayis").innerHTML=dateFormat;
+
+//Date displayed on form
+document.querySelector("#datejoined.value").innerHTML=date;
+
+//Toggle Menu for Hamburguer button//
+function toggleMenu(){
+	bread.classList.toggle("open");
+	navi.classList.toggle("open");
+};
+let bread= document.getElementById("hamb_button");
+let navi= document.getElementById("pNav");
+bread.addEventListener('click',toggleMenu)
+
+/*bread.onclick = toggleMenu();
+bread.addEventListener('click',toggleMenu);*/
+
+//Announcement that will appear only on Monday and Tuesday//
+if (day === 1) {document.getElementById("announcement").innerHTML ="🤝🏼 Come join us for the chamber meet and greet Wednesday at 7:00 p.m."};
+if (day === 2) {document.getElementById("announcement").innerHTML ="🤝🏼 Come join us for the chamber meet and greet tomorrow,Wednesday at 7:00 p.m"};
+/*if (day === 6) {document.getElementById("announcement").innerHTML ="🤝🏼 Come join us for the chamber meet and greet Wednesday at 7:00 p.m."};*/
+
+// Local Storage coding
+
+const todayDisplay = (document.querySelector(".visitor"));
+const visitsDisplay = (document.querySelector("#numberVisits"));
+let differenceInDays = (document.querySelector("#timeLapse"));
+// get the stored value in localStorage
+let numVisits = Number(window.localStorage.getItem("visits-ls"));
+let lastVisitDate = Number(window.localStorage.getItem("visited"))
+// determine if this is the first visit or display the number of visits.
+if (numVisits !== 0) {
+	visitsDisplay.textContent = numVisits;
+} else {
+	visitsDisplay.textContent = `This is your first visit!`;
+}
+function difference(a,b){
+	return a - b;
+}
+differenceInDays = round.difference(todayDisplay,lastVisitDate)
+// increment the number of visits.
+numVisits++;
+lastVisitDate++;
+// store the new number of visits value
+localStorage.setItem("visits-ls", numVisits);
+localStorage.setItem("visited", Date.now());
+localStorage.setItem("timelapse", lastVisitTime);
+
+// show todays date.
+todayDisplay.textContent = Date.now();
+
+//Membership number
+
+let randNumb = 3252;
+document.querySelector("#memNumb").innerText= randNumb;
+
+**********************************************************************************************
+Wind chill
+********************************************************************************************
+let t = document.querySelector("#temp");
+let s = document.querySelector("#speed");
+function getChill(x,y){
+    return 35.74 + (0.6215 * x) - (35.75 * (y ** 0.16)) + 0.4275 + (y ** 0.16);}
+let ch = getChill(63,8);
+  if (ch =="NaN") { 
+  document.getElementById("chill").innerHTML= N/A;}
+  else{
+    document.getElementById("chill").innerHTML= Math.ceil(ch);
+
+  };
+
+
+// select HTML elements in the document
+const currentTemp = document.querySelector('#temp');
+const weatherIcon = document.querySelector('#icon');
+const captionDesc = document.querySelector('figcaption');
+const windSpeed = document.querySelector('#speed');
+const humidity = document.querySelector("#humid");
+
+const url = 'https://api.openweathermap.org/data/2.5/weather?q=curitiba&units=imperial&appid=87951c9b1071233f4e525b5a6cf8d68b';
+
+async function apiFetch() {
+    try {
+      const response = await fetch(url);
+      if (response.ok) {
+        const data = await response.json();
+        //console.log(data); // this is for testing the call
+         displayResults(data);
+      } else {
+          throw Error(await response.text());
+      }
+    } catch (error) {
+        console.log(error);
+    }
+  }
+  apiFetch();
+  function  displayResults(weatherData) {
+    currentTemp.innerHTML = `The weather today in Curitiba is:<strong>${weatherData.main.temp.toFixed(0)}</strong>`;
+    windSpeed.innerHTML=`Wind Speed <strong>${weatherData.wind.speed.toFixed(0)}</strong>`;
+    humidity.innerHTML=`Humidity: ${weatherData.main.humidity.toFixed(0)}%`;
+    const iconsrc = `https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`;
+    const desc = weatherData.weather[0].description;
+  let upperDesc = desc.toUpperCase();
+    weatherIcon.setAttribute('src', iconsrc);
+    weatherIcon.setAttribute('alt', captionDesc);
+    captionDesc.textContent = upperDesc;
+    imageUrl.innerHTML=`${icon}`;
+  }
+  /*let ch = getChill(currentTemp,windSpeed);
+  function getChill(x,y){
+    return 35.74 + (0.6215 * x) - (35.75 * (y ** 0.16)) + 0.4275 + (y ** 0.16);}
+  if (ch = NaN) { 
+  document.getElementById("chill").innerText= N/A;}
+  else{
+    document.getElementById("#chill").innerText= Math.ceil(ch);
+
+  };
+  getChill();*/
+
+*********************************************************************************
+Media queries
+***********************************************************************************
+@media only screen and (min-width: 35rem)
+@media only screen  and (min-width:64rem)
+
+*************************************************************************************
+Hamburger button
+***********************************************************************************
+<div id="datespan">
+                    <p>
+                        Current date:<span id="todayis"></span>
+                    </p>
+            
+                </div>
+                <nav>
+                    <button type="button" id="hamb_button"><span>&equiv;</span><span>x</span></button>
+                    <ul id="pNav">
+                        <li class="hov"><a href="index.html">Home</a></li>
+                        <li class="hov"><a href="discover.html">Discover</a></li>
+                        <li class="hov"><a href="directory.html">Directory</a></li>
+                        <li class="hov"><a href="join.html">Join</a></li>
+                    </ul>
+                    
+                </nav>
+
+****************************************************************************************************
+Social media
+******************************************************************************************************
+<div>
+   <ul id="smedia">
+      <li><a href="https://instagram.com"><img id="insta" src="images/instagram_icon.webp" alt="Instagram icon" ></a></li>
+      <li><a href="https://twitter.com"><img id="twitter" src="images/twitter_logo.webp" alt="Twitter icon"></a></li>
+
+    </ul>
+
+</div>
