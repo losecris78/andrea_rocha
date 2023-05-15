@@ -1,5 +1,12 @@
 
 
+let date = new Date;
+let year = date.getFullYear();
+let dateFormat = new Intl.DateTimeFormat("en-US",{dateStyle:"full"}).format(date);
+let day = date.getDay()
+/*console.log(day);*/
+document.querySelector("today").innerHTML=dateFormat;
+document.querySelector("year").innerHTML= year
 
 
 //Year display for copyright//
@@ -39,10 +46,4 @@ async function apiFetch() {
     weatherIcon.setAttribute('alt', desc);
     captionDesc.textContent = desc;
     imageUrl.innerHTML=`${icon}`;
-  }
-  let date = new Date;
-let year = date.getFullYear();
-let dateFormat = new Intl.DateTimeFormat("en-US",{dateStyle:"full"}).format(date);
-let day = date.getDay()
-/*console.log(day);*/
-document.querySelector("#today").innerHTML=dateFormat;
+  };
