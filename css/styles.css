@@ -120,6 +120,22 @@ Medium screens
     .weather{
         font-size: 1.3rem;
     }
+    #hero{
+position: relative;
+    }
+    #associates{
+position: absolute;
+margin-top: -400px;
+margin-left: 150px;
+}
+#associates li{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: rgba(190, 24, 24, 0.622);
+        font-size: 1rem;
+        font-weight: bold;
+        text-shadow: #3934343e;
+
+    }
 }
 
 /***************************************************************
@@ -133,4 +149,18 @@ Big Screens
     }
     #title, #top, #bottom{
         flex-flow: row;}
+        #hero{
+            position: relative;
+                }
+                #associates{
+            position: absolute;
+            margin-top: -40rem;
+            margin-left: 15rem;
+            }
+            #associates li{
+                    font-family: Georgia, 'Times New Roman', Times, serif;
+                    color: rgba(190, 24, 24, 0.622);
+                    font-size: 1.5rem;
+            
+                }
 }
