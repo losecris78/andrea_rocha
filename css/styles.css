@@ -1,13 +1,19 @@
-@media screen {
-    
-}
+
 *{
     box-sizing: border-box;
 }
-#title{
+.weather{
+    background-color: rgba(238, 171, 90, 0.267);
+    font-family:'Kanit', sans-serif ;
+    font-size: 1rem;
+    text-align: end;
+}
+#title, #top, #bottom{
     display: flex;
+    flex-flow: column;
 }
 #title h1 {
+    box-shadow:0 0 30px #3934343e;
     background-color: rgba(190, 24, 24, 0.622);
     border: 1.5px solid black;
     border-radius: 14px;
@@ -23,6 +29,8 @@
     width: 10rem;
     border:none;
     box-shadow: none;
+    margin: 0 auto;
+    
 
 }
 li,a{
@@ -48,12 +56,14 @@ p{
 }
 nav ul {
     display:flex;
-    margin:1rem auto;
+    flex-flow: column;
     min-width: fit-content;
-    max-width: 45%;
     border:2px solid black;
     border-radius: 20px;
     background-color: rgba(238, 171, 90, 0.267);
+    margin: 0 auto;
+	max-width: 780px;
+	box-shadow: 0 0 30px rgba(238, 171, 90, 0.9);
 
 }
 ul li{
@@ -81,6 +91,7 @@ box-shadow: 7px 3px rgba(238, 171, 90, 0.267);
 }
 footer{
     background-color: rgba(238, 171, 90, 0.267);
+    box-shadow:0 0 30px #3934343e ;
 }
 #contact{
     text-align: center;
@@ -89,4 +100,37 @@ footer{
 #smedia{
     display: flex;
     width: 25px;
+}
+/****************************************************************
+Medium screens
+************************************************************/
+
+@media only screen and (min-width: 37.5em){
+    h1 {
+        font-size: 1.5rem;
+    }
+    nav ul{
+        display:flex;
+        flex-flow: row;
+
+    }
+    nav ul li{
+        flex: 1 1 auto;
+    }
+    .weather{
+        font-size: 1.3rem;
+    }
+}
+
+/***************************************************************
+Big Screens
+*****************************************************************/
+
+@media only screen and (min-width: 60em){
+    h1{
+        font-size: 2rem;
+
+    }
+    #title, #top, #bottom{
+        flex-flow: row;}
 }
