@@ -10,7 +10,12 @@ Small screens
     background-color: rgba(238, 171, 90, 0.267);
     font-family:'Kanit', sans-serif ;
     font-size: 1rem;
+    margin-left: 60%;
     text-align: end;
+    width: fit-content;
+    box-shadow:0 0 30px #3934343e ;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 #title, #top, #bottom{
     display: flex;
@@ -83,7 +88,6 @@ ul li{
     list-style: none;
     text-align: center;
 
-
 }
 #top, #bottom {
     display: flex;
@@ -98,6 +102,9 @@ width: 85%;
 border:1.5px solid rgba(190, 24, 24, 0.622);
 box-shadow: 7px 3px rgba(238, 171, 90, 0.267);
 }
+#form_pic{
+    width:20rem;
+}
 footer{
     background-color: rgba(238, 171, 90, 0.267);
     box-shadow:0 0 30px #3934343e ;
@@ -106,12 +113,37 @@ footer{
     text-align: center;
     padding:.5rem;
 }
+
 #smedia{
     display: flex;
-    width: 25px;
+    flex-flow: column;
+    
+    width: 150px;
 }
 iframe{
     border: 2px solid black;
+    width: fit-content;
+}
+img .profile{
+    width: 60%;
+}
+.associates li{
+    font-size: 1.2rem;
+    color:rgb(190, 24, 24) ;
+    text-align: center;
+}
+
+.procedures{
+    display: block;
+}
+
+#aboutme{
+    font-size: 1.4rem;
+    width: fit-content;
+    max-width: 80vw;
+}
+#aboutme h3{
+    text-align: center;
 }
 /****************************************************************
 Medium screens
@@ -124,6 +156,7 @@ Medium screens
     nav ul{
         display:flex;
         flex-flow: row;
+        width: max-content;
 
     }
     nav ul li{
@@ -131,14 +164,40 @@ Medium screens
     }
     .weather{
         font-size: 1.3rem;
+        
     }
     #hero{
 position: relative;
     }
-    #associates{
+    .associates{
 position: absolute;
-margin-top: -400px;
-margin-left: 150px;
+margin-top: -800px;
+margin-left: 50px;
+}
+
+.associates img{
+width: 150px;
+}
+#form_pic{
+    width: 35rem;
+    margin:0 auto;
+    padding: 1rem;
+    margin-left: 2rem;
+    position: inherit;
+
+}
+#smedia{
+    flex-flow: row;
+}
+iframe{
+    width:30rem;
+    margin: 1rem;
+}
+
+/*revisar*/
+smedia,#form_image{
+    flex-flow: column;
+    flex: 1 1 auto;
 }
 #associates li{
         font-family: Georgia, 'Times New Roman', Times, serif;
@@ -150,29 +209,53 @@ margin-left: 150px;
     }
 }
 
+
 /***************************************************************
 Big Screens
 *****************************************************************/
 
 @media only screen and (min-width: 60em){
+    .procedures{
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        max-width: 95vw;
+        text-align: center;
+    
+    }
+    .left{
+    grid-column: 1/2;
+    
+    }
+    .mainproc{
+    grid-column: 2/3;
+    
+    }
+    .right{
+    grid-column: 3/4;
+    
+    }
     h1{
         font-size: 2rem;
 
     }
     #title, #top, #bottom{
         flex-flow: row;}
-        #hero{
-            position: relative;
-                }
-                #associates{
-            position: absolute;
-            margin-top: -40rem;
-            margin-left: 15rem;
-            }
-            #associates li{
-                    font-family: Georgia, 'Times New Roman', Times, serif;
-                    color: rgba(190, 24, 24, 0.622);
-                    font-size: 1.5rem;
+    #hero{
+    position: relative;
+    }
+    #associates{
+    position: absolute;
+    margin-top: -40rem;
+    margin-left: 15rem;
+    }
+    #associates li{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgba(190, 24, 24, 0.622);
+    font-size: 1.5rem;
             
-                }
+    }
+    #form_pic{
+        width: 50rem;
+        margin: 0 auto;
+    }
 }
