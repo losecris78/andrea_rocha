@@ -128,9 +128,9 @@ img .profile{
     width: 60%;
 }
 .associates li{
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     color:rgb(190, 24, 24) ;
-    text-align: center;
+    text-align: start;
 }
 
 .procedures{
@@ -171,8 +171,8 @@ position: relative;
     }
     .associates{
 position: absolute;
-margin-top: -800px;
-margin-left: 50px;
+margin-top: -60rem;
+margin-left: 1rem;
 }
 
 .associates img{
