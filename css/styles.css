@@ -67,18 +67,44 @@ p{
     font-size: 1.3rem;
     font-family: 'Cormorant Garamond', serif;
 }
-nav ul {
-    display:flex;
-    flex-flow: column;
-    flex: 1 1 450px;
-    min-width: fit-content;
-    border:2px solid black;
-    border-radius: 20px;
+nav{
     background-color: rgba(238, 171, 90, 0.267);
+    border:1px solid black;
+    border-radius: 5px;
+    max-width: fit-content;
+}
+nav ul {
+    display:none;
+}
+nav ul.open{
+    display: block;
+    min-width: fit-content;
+    border-radius: 20px;
+    color: rgba(238, 171, 90, 0.267);
     margin: 0 auto;
 	max-width: 780px;
-	box-shadow: 0 0 30px rgba(238, 171, 90, 0.9);
-
+	list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+nav button {
+    margin: .2rem 2vw;
+    background-color: transparent;
+    border:none;
+    font-size: 2rem;
+    color:#555;
+}
+#hamburguerBtn span:nth-child(1){
+    display:block;
+}
+#hamburguerBtn span:nth-child(2){
+    display:none;
+}
+#hamburguerBtn.open span:nth-child(1){
+    display:none;
+}
+#hamburguerBtn.open span:nth-child(2){
+    display:block;
 }
 ul li{
     
@@ -87,8 +113,19 @@ ul li{
     font-family: 'Cormorant Garamond', serif;
     list-style: none;
     text-align: center;
-
 }
+nav ul li a{
+display: block;
+padding: .8rem 2vw;
+text-decoration: none;
+color:#333;
+border-top: 1px solid rgba(0,0,0,0.2);
+}
+nav ul li .active a{
+background-color: rgba(0,0,0,0.2);
+color:#fff;
+}
+
 #top, #bottom {
     display: flex;
 }
@@ -153,14 +190,26 @@ Medium screens
     h1 {
         font-size: 1.5rem;
     }
-    nav ul{
+    nav ul {
         display:flex;
-        flex-flow: row;
+       
+        border-left: 1px solid rgba(0,0,0,0.2);
+        margin: 0 auto;
+        padding: 0 1rem;
+        text-align: center;
         width: max-content;
+        align-items: center;
+        justify-items: center;
+        justify-self: center;
 
     }
-    nav ul li{
-        flex: 1 1 auto;
+    nav ul li a{
+        border: none;
+        border-right: 1px solid rgba(0,0,0,0.2);
+    }
+
+    nav button{
+        display: none;
     }
     .weather{
         font-size: 1.3rem;
@@ -238,6 +287,9 @@ Big Screens
     h1{
         font-size: 2rem;
 
+    }
+    nav ul li a{
+        padding:.5rem 1rem;
     }
     #title, #top, #bottom{
         flex-flow: row;}

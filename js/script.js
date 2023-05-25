@@ -1,4 +1,5 @@
-
+/********************************************
+date variables and declarations********************************/
 
 let date = new Date;
 let year = date.getFullYear();
@@ -9,7 +10,8 @@ document.querySelector("#today").innerHTML=dateFormat;
 document.querySelector("#year").innerHTML= year
 
 
-//Year display for copyright//
+/*******************************************
+ * weather declarations***********************************/
 
 
 
@@ -47,3 +49,14 @@ async function apiFetch() {
     captionDesc.textContent = desc;
     imageUrl.innerHTML=`${icon}`;
   };
+
+  /********************************************************
+   * hamburguer button*********************************  */
+
+  function toggleMenu(){
+    document.getElementById("primaryNav").classList.toggle("open");
+  }
+  const x= document.getElementById("hamburguerBtn")
+  x.onclick= toggleMenu;
+
+  
